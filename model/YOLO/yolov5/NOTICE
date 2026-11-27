@@ -1,0 +1,4 @@
+The model and loss code are adapted from yolov5_obb (GPL-3.0).
+https://github.com/hukaixuan19970627/yolov5_obb
+Includes a modified Ultralytics runtime (AGPL-3.0).
+https://github.com/ultralytics/ultralytics

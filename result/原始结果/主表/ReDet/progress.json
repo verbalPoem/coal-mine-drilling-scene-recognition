@@ -1,0 +1,15 @@
+{
+  "state": "epoch_completed",
+  "job": "redet",
+  "completed_epochs": 6,
+  "max_epochs": 6,
+  "best_epoch": 6,
+  "best_map50_95": 0.3274762253169607,
+  "last_validation": {
+    "precision": 0.7365923584807376,
+    "recall": 0.5488207096067931,
+    "map50": 0.5839898027084511,
+    "map50_95": 0.3274762253169607
+  },
+  "updated_unix": 1794935304.8434415
+}

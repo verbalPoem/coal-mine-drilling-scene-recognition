@@ -1,0 +1,11 @@
+Oriented R-CNN
+Model and configuration adapted from OpenMMLab MMRotate v0.3.4.
+Copyright (c) OpenMMLab. Apache License 2.0.
+https://github.com/open-mmlab/mmrotate
+
+Rotated detection metrics adapt the ProbIoU, matching and AP equations in Ultralytics.
+These components are distributed under AGPL-3.0. See LICENSE-Ultralytics.
+https://github.com/ultralytics/ultralytics
+
+The bundled MMRotate 0.3.4 source retains the runtime modules used by this detector.
+Package imports are adapted for this distribution. See LICENSE.

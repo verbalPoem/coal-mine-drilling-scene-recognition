@@ -1,0 +1,6 @@
+# Python 3.10 (x86-64)
+--extra-index-url https://download.pytorch.org/whl/cpu
+--find-links https://download.openmmlab.com/mmcv/dist/cpu/torch1.13.0/index.html
+-r requirements/base.txt
+torch==1.13.1+cpu
+torchvision==0.14.1+cpu

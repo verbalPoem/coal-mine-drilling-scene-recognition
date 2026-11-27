@@ -1,0 +1,6 @@
+# Python 3.10 (x86-64)
+--extra-index-url https://download.pytorch.org/whl/cu117
+--find-links https://download.openmmlab.com/mmcv/dist/cu117/torch1.13.0/index.html
+-r requirements/base.txt
+torch==1.13.1+cu117
+torchvision==0.14.1+cu117

@@ -1,0 +1,46 @@
+nc: 6
+scale: n
+scales:
+  n: [0.50, 0.25, 1024]
+classification_loss: support_budget_focal
+caf_stages:
+  - [6, "ProjectedRepLK", [134, 25]]
+  - [8, "ProjectedRepLK", [66, 9]]
+  - [16, "BalancedAFF", [384, 36, 43, 1]]
+  - [20, "DirectionalAFF", [256, 32, 24, 2]]
+
+backbone:
+  - [-1, 1, Conv,  [64, 3, 2]]
+  - [-1, 1, Conv,  [128, 3, 2, 1, 2]]
+  - [-1, 2, DSC3k2,  [256, False, 0.25]]
+  - [-1, 1, Conv,  [256, 3, 2, 1, 4]]
+  - [-1, 2, DSC3k2,  [512, False, 0.25]]
+  - [-1, 1, DSConv,  [512, 3, 2]]
+  - [-1, 4, A2C2f, [512, True, 4, False, 5.43]]
+  - [-1, 1, DSConv,  [1024, 3, 2]]
+  - [-1, 4, A2C2f, [1024, True, 1, False, 5.43]]
+head:
+  - [[4, 6, 8], 2, HyperACE, [512, 8, True, True, 0.5, 1, "both"]]
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [ 9, 1, DownsampleConv, []]
+  - [[6, 9], 1, FullPAD_Tunnel, []]
+  - [[4, 10], 1, FullPAD_Tunnel, []]
+  - [[8, 11], 1, FullPAD_Tunnel, []]
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 12], 1, Concat, [1]]
+  - [-1, 2, DSC3k2, [512, True]]
+  - [[-1, 9], 1, FullPAD_Tunnel, []]
+  - [17, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 13], 1, Concat, [1]]
+  - [-1, 2, DSC3k2, [256, True]]
+  - [10, 1, Conv, [256, 1, 1]]
+  - [[21, 22], 1, FullPAD_Tunnel, []]
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 18], 1, Concat, [1]]
+  - [-1, 2, DSC3k2, [512, True]]
+  - [[-1, 9], 1, FullPAD_Tunnel, []]
+  - [26, 1, Conv, [512, 3, 2]]
+  - [[-1, 14], 1, Concat, [1]]
+  - [-1, 2, DSC3k2, [1024,True]]
+  - [[-1, 11], 1, FullPAD_Tunnel, []]
+  - [[23, 27, 31], 1, OBB, [nc, 1]]

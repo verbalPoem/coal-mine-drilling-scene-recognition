@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yolov10n-hbb"
+version = "1.0.0"
+description = "YOLOv10n horizontal object detection"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["ultralytics*"]
+
+[tool.setuptools.package-data]
+ultralytics = ["cfg/default.yaml", "cfg/models/v10/*.yaml"]

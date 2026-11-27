@@ -1,0 +1,16 @@
+torch>=2.1,<2.6
+torchvision>=0.16,<0.21
+numpy>=1.23,<2
+opencv-python>=4.6,<4.12
+PyYAML>=6
+Pillow>=9
+matplotlib>=3.5
+scipy>=1.7
+pandas>=1.5
+seaborn>=0.12
+psutil>=5.9
+py-cpuinfo>=9
+tqdm>=4.64
+requests>=2.28
+ultralytics-thop>=2
+packaging>=23

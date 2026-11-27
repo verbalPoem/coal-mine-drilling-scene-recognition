@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caf-yolov13"
+version = "2.0.0"
+description = "Six-class oriented object detectors based on YOLOv13"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dynamic = ["dependencies"]
+
+[project.urls]
+YOLOv13 = "https://github.com/iMoonLab/yolov13"
+Ultralytics = "https://github.com/ultralytics/ultralytics"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["ultralytics*"]
+
+[tool.setuptools.package-data]
+ultralytics = ["cfg/*.yaml", "cfg/models/13/*.yaml", "cfg/solutions/*.yaml"]
